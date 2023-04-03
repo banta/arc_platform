@@ -1,6 +1,6 @@
 class ChaptersController < ApplicationController
   load_and_authorize_resource except: %i[ index show] # Load cancancan authorize for all actions
-  before_action :set_chapter, only: %i[ show edit update destroy ]
+  before_action :set_chapter, only: %i[ edit update destroy ]
   skip_before_action :authenticate_user!, only: %i[ index show]
 
   # GET /chapters or /chapters.json
@@ -10,6 +10,7 @@ class ChaptersController < ApplicationController
 
   # GET /chapters/1 or /chapters/1.json
   def show
+    @chapter = Chapter.find_by_slug(params[:slug])
   end
 
   # GET /chapters/new

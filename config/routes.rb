@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     mount Motor::Admin => '/admin'
   end
   resources :projects
-  resources :chapters
+  resources :chapters, except: :show do
+    get ':slug', to: 'chapters#show', as: :find_by_slug, on: :collection
+  end
+
   resources :countries
   devise_for :users, controllers: {
     registrations: 'users/registrations', # Override devise registration controller
