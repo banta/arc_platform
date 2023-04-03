@@ -1,13 +1,15 @@
 ---
 engine_version: 0.4.7
-file_version: 2023-03-09 16:16:17.698355000 Z
+file_version: 2023-04-03 05:50:48.235103000 Z
 resources:
 - name: chapter
   preferences:
     columns:
     - column_type: richtext
       name: description
-  updated_at: 2023-03-05 09:31:13.962854000 +00:00
+    - access_type: read_only
+      name: slug
+  updated_at: 2023-04-03 05:50:48.235103000 +00:00
 - name: feature_flag
   preferences:
     columns:
@@ -17,16 +19,9 @@ resources:
 configs:
 - key: header.links
   value:
-  - name: Reports
-    link_type: reports
-  - name: Forms
-    link_type: forms
-  - conditions: []
-    type: header
-    name: Exit admin portal
-    path: "/"
-    link_type: header
-  updated_at: 2023-03-05 09:37:51.799389000 +00:00
+  - name: "⭐ Star on GitHub"
+    path: https://github.com/motor-admin/motor-admin-rails
+  updated_at: 2023-03-30 00:41:34.130118000 +00:00
 queries: []
 dashboards: []
 forms: []
@@ -36,5 +31,5 @@ api_configs:
   name: origin
   url: "/"
   preferences: {}
-  description: 
-  updated_at: 2023-03-05 08:41:14.200426000 +00:00
+  description:
+  updated_at: 2023-03-30 00:41:34.133532000 +00:00
