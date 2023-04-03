@@ -16,6 +16,8 @@ class Chapter < ApplicationRecord
                                                locals: { country: self }, target: self }
   after_destroy_commit -> { broadcast_remove_to 'chapters', target: self }
 
+  before_validation :update_slug, on: [:create, :update]
+
   # Validations
   validates :name, :location, :country_id, :description, presence: true
   validates :name, uniqueness: true
@@ -27,4 +29,14 @@ class Chapter < ApplicationRecord
   #             width: 400, height: 225,
   #             message: 'is not given between dimension. It should be 400x225',
   #           }
+
+  private
+
+  ##
+  # Update slug if the chapter name has changed
+  def update_slug
+    if name_changed?
+      self.slug = name.parameterize(separator: '-')
+    end
+  end
 end
