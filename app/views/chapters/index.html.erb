@@ -19,13 +19,6 @@
           <%= link_to find_by_slug_chapters_path(chapter.slug) do %>
             <span class="text-lg"><%= chapter.name %></span>
           <% end %>
-
-          <% if can? :manage, chapter %>
-            <%= link_to 'Edit', edit_chapter_path(chapter), class: 'btn btn-xs btn-info',
-                        data: { turbo_frame: "edit_chapter_#{chapter.id}" } %>
-            <%= link_to 'Delete', chapter, class: 'btn btn-xs btn-error',
-                        method: :delete %>
-          <% end %>
         </div>
       </div>
     <% end %>
