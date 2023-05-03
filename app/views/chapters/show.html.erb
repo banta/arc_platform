@@ -20,4 +20,8 @@
   <div class="py-4">
     <%= sanitize(@chapter.description) %>
   </div>
+  <h3 class="text-lg my-4">Chapter Leaders</h3>
+  <div>
+    <%= UsersChapter.find_by_chapter(@chapter.id) %>
+  </div>
 </div>
