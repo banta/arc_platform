@@ -3,6 +3,10 @@
     <div class="w-full md:w-2/3">
       <% if @chapter.hero_image.present? %>
         <%= image_tag(@chapter.hero_image, class: 'rounded-lg w-full h-72 object-cover') %>
+      <% else %>
+        <div class="bg-gray-200 rounded-lg w-full h-72 object-cover">
+          <p class="flex justify-center place-self-center p-2">No hero image attached</p>
+        </div>
       <% end %>
     </div>
     <div class="w-full md:w-1/3 p-4 bg-gray-100 rounded-lg">
