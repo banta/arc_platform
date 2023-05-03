@@ -31,6 +31,10 @@ class Chapter < ApplicationRecord
   #             message: 'is not given between dimension. It should be 400x225',
   #           }
 
+  def encode_address
+    Addressable::URI.encode(self.location)
+  end
+
   private
 
   ##
