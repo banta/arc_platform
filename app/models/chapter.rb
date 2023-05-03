@@ -1,6 +1,7 @@
 class Chapter < ApplicationRecord
   # Attachments
   has_one_attached :image
+  has_one_attached :hero_image
 
   # Associations
   belongs_to :country
