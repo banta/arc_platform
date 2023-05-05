@@ -7,6 +7,7 @@ class Chapter < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :users_chapters
   has_many :users, through: :users_chapters
+  has_many :meetup_events
 
   # Callbacks
   after_create_commit -> {
