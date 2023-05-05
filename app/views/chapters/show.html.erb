@@ -1,23 +1,34 @@
 <div class="container pt-10 px-4 xl:px-24 mx-auto">
   <div class="flex flex-col md:flex-row gap-8">
     <div class="w-full md:w-2/3">
-      <% if @chapter.hero_image.present? %>
-        <%= image_tag(@chapter.hero_image, class: 'rounded-lg w-full h-72 object-cover') %>
-      <% else %>
-        <div class="bg-gray-200 rounded-lg w-full h-72 object-cover">
-          <p class="flex justify-center place-self-center p-2">No hero image attached</p>
-        </div>
-      <% end %>
+      <div>
+        <% if @chapter.hero_image.present? %>
+          <%= image_tag(@chapter.hero_image, class: 'rounded-lg w-full h-72 object-cover') %>
+        <% else %>
+          <div class="bg-gray-200 rounded-lg w-full h-72 object-cover">
+            <p class="flex justify-center place-self-center p-2">No hero image attached</p>
+          </div>
+        <% end %>
+      </div>
+      <h1 class="py-8 text-4xl text-red-600 font-bold">
+        <%= @chapter.name %>
+      </h1>
+      <h2 class="text-xl">About Chapter</h2>
+      <div class="py-4">
+        <%= sanitize(@chapter.description) %>
+      </div>
+      <h3 class="text-lg my-4">Chapter Leaders</h3>
+      <div>
+        <% if !UsersChapter.find_by(chapter_id: @chapter, leader: true).nil? %>
+          <%= chapter_leader_card(@chapter) %>
+        <% else %>
+          <p>No Leaders yet</p>
+        <% end %>
+      </div>
     </div>
-    <div class="w-full md:w-1/3 p-4 bg-gray-100 rounded-lg">
-      <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=IHub,%20Nairobi+(ARC%20Nairuby)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300" frameborder="0"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe></div>
+    <div class="w-full md:w-1/3 p-4 bg-gray-100 h-72 rounded-lg">
+      <h3 class="mb-2"><%= "#{@chapter.location}, #{@chapter.country.name}" %></h3>
+      <div style="width: 100%"><iframe scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=300&amp;hl=en&amp;q=<%= @chapter.encode_address %>&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed" width="100%" height="300" frameborder="0"><a href="https://www.maps.ie/distance-area-calculator.html">area maps</a></iframe></div>
     </div>
-  </div>
-  <h1 class="py-8 text-4xl text-red-600 font-bold">
-    <%= @chapter.name %>
-  </h1>
-  <h2 class="text-xl">About Chapter</h2>
-  <div class="py-4">
-    <%= sanitize(@chapter.description) %>
   </div>
 </div>
