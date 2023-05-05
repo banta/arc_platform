@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :meetup_events
   authenticate :user do
     mount Motor::Admin => '/admin'
   end

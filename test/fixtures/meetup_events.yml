@@ -1,0 +1,25 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  rsvp_link: MyString
+  image: MyString
+  start_time: 2023-05-05 05:24:12
+  end_time: 2023-05-05 05:24:12
+  venue_name: MyString
+  venue_address: MyString
+  venue_coordinates: 
+  data: 
+
+two:
+  title: MyString
+  description: MyText
+  rsvp_link: MyString
+  image: MyString
+  start_time: 2023-05-05 05:24:12
+  end_time: 2023-05-05 05:24:12
+  venue_name: MyString
+  venue_address: MyString
+  venue_coordinates: 
+  data: 

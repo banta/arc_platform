@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_13_002939) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_05_022412) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -49,7 +49,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_002939) do
     t.bigint "country_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "slug", null: false
     t.index ["country_id"], name: "index_chapters_on_country_id"
+    t.index ["slug"], name: "index_chapters_on_slug", unique: true
   end
 
   create_table "countries", force: :cascade do |t|
@@ -64,6 +66,23 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_13_002939) do
     t.boolean "enabled"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "meetup_events", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "rsvp_link"
+    t.string "image"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "venue_name"
+    t.string "venue_address"
+    t.bigint "chapter_id"
+    t.jsonb "venue_coordinates", default: {}, null: false
+    t.jsonb "data", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["chapter_id"], name: "index_meetup_events_on_chapter_id"
   end
 
   create_table "motor_alert_locks", force: :cascade do |t|
