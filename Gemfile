@@ -112,3 +112,5 @@ group :test do
   # Code coverage analysis tool for ruby
   gem 'simplecov', require: false
 end
+
+gem "faraday", "~> 2.7"
