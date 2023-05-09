@@ -4,7 +4,9 @@
 
 <div id="meetup_events">
   <% @meetup_events.each do |meetup_event| %>
-    <%= render meetup_event %>
+    <%#= render meetup_event %>
+    <%= meetup_event["name"] %>
+    <%= meetup_event["local_date"] %>
     <p>
       <%= link_to "Show this meetup event", meetup_event %>
     </p>
