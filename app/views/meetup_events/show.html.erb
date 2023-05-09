@@ -1,6 +1,7 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @meetup_event %>
+<%= @meetup_event["name"] %>
+<%= @meetup_event["description"] %>
 
 <div>
   <%= link_to "Edit this meetup event", edit_meetup_event_path(@meetup_event) %> |
