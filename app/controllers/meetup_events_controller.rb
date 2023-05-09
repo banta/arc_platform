@@ -3,7 +3,7 @@ class MeetupEventsController < ApplicationController
 
   # GET /meetup_events or /meetup_events.json
   def index
-    @meetup_events = MeetupEvent.all
+    @meetup_events = MeetUpEventService.new.fetch_events
   end
 
   # GET /meetup_events/1 or /meetup_events/1.json
