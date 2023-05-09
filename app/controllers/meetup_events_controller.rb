@@ -60,7 +60,8 @@ class MeetupEventsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_meetup_event
-      @meetup_event = MeetupEvent.find(params[:id])
+      # @meetup_event = MeetupEvent.find(params[:id])
+      @meetup_event = MeetUpEventService.new.fetch_event(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
