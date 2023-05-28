@@ -6,6 +6,22 @@
     :root {
     /*  Override colors and other variables  */
     }
+
+    h1 {
+        @apply text-2xl font-medium;
+    }
+
+    h2 {
+        @apply text-xl;
+    }
+    
+    .arc_title {
+        @apply text-4xl font-bold text-red-600;
+    }
+
+    .arc_subtitle {
+        @apply py-2 text-xl font-medium leading-normal;
+    }
 }
 
 @layer components {
