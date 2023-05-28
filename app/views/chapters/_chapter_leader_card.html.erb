@@ -1,0 +1,20 @@
+<div class="Speaker_Card">
+  <%= image_tag("https://github.com/#{user.github_username}.png",
+                alt: "#{user.name}'s Github photo",
+                class: 'h-[75] w-full rounded-t-lg bg-slate-200') %>
+
+  <div class="px-3">
+    <p class="arc_subtitle mt-1"><%= user.name %></p>
+
+    <!-- Socials -->
+    <div class="Speakers_Socials">
+      <div class="inline-flex justify-start space-x-4">
+        <a href="https://github.com/<%= user.github_username %>" target="_blank"
+           class="flex items-center gap-1">
+          <img src="https://anima-uploads.s3.amazonaws.com/projects/5ee3a2693990c6253bbcee4d/releases/5ee3a46b270f553c45e803b8/img/logo-github-12@1x.png" alt="" class="h-5 w-5 rounded-full"/>
+          <span><%= user.github_username %></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
